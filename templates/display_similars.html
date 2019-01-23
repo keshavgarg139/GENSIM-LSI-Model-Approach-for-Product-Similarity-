@@ -1,0 +1,48 @@
+<!doctype.html>
+
+<html>
+<br><br>
+<table border="1" class="dataframe" cellpadding="2" bgcolor="LIGHTYELLOW">
+
+  <thead>
+    <tr style="text-align: center">
+      <th>S. No.</th>
+      <th>Product ID</th>
+      <th>Product Title</th>
+      <th>Description</th>
+      <th>Total Similarity</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for products in similars %}
+      {% for product in products[1:] %}
+      <tr align="center">
+
+        <td>
+        	{% if loop.index == 1 %}
+        		Query
+        	{% else %}		 
+  		      	{{loop.index-1}} 
+  		    {% endif %}
+  		</td>
+        <td> {{product[1]}} </td>
+        <td> {{product[2]}} </td>
+        <td> {{product[3]}} </td>
+        <td> {{product[8]}} </td>
+
+      </tr>
+      {% endfor %}
+    {% endfor %}
+    
+  </tbody>
+
+</table>
+
+<form action = http://127.0.0.1:5000/ >
+  <h3> To see similars for another product_id please click </h3>
+  <input type="submit" value="Add a record" >
+</form>
+
+</html>
